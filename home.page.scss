@@ -1,10 +1,21 @@
-#container {
+.container {
   text-align: center;
 
+  width: 80%;
   position: absolute;
-  left: 0%;
+  left: 10%;
   right: 0%;
-  top: 10%;
+  top: 15%;
+}
+
+.stacked {
+  position: relative;
+  padding: 0 0 5% 0;
+}
+
+.stacked2 {
+  text-align: left;
+  position: relative;
 }
 
 #container strong {
