@@ -14,29 +14,38 @@
   </ion-header>
 </ion-content>
 
-<div id="container">
-  <ion-select multiple="true" cancelText="Nah" okText="Okay!" placeholder="Select your Major(s)">
-    <ion-select-option value="bcs">BCS</ion-select-option>
-    <ion-select-option value="csplus">CS+</ion-select-option>
-    <ion-select-option value="ba_writing">BA Writing</ion-select-option>
-    <ion-select-option value="bs_psych">BS Psychology</ion-select-option>
-  </ion-select>
-  <ion-select multiple="true" cancelText="Nah" okText="Okay!" placeholder="Select your Minor(s)">
-    <ion-select-option value="english">English</ion-select-option>
-    <ion-select-option value="accounting">Accounting</ion-select-option>
-  </ion-select>
-  Input your courses:
-  <ion-list>
-    <form [formGroup]="myForm">
-      <ion-item *ngFor="let control of myForm.controls | keyvalue">
-        <ion-input required type="text" [formControlName]="control.key" placeHolder="CS112"></ion-input>
-      </ion-item>
-    </form>
-  </ion-list>
-  <ion-button block color="light" (click)="addControl()">Add Course</ion-button>
-  <ion-button block color="light" (click)="removeControl()">Remove Course</ion-button>
+<div class="container">
+  <div class="stacked">
+    <ion-select multiple="true" cancelText="Cancel" okText="Done" placeholder="Select your Major(s)">
+      <ion-select-option value="bcs">BCS</ion-select-option>
+      <ion-select-option value="csplus">CS+</ion-select-option>
+      <ion-select-option value="ba_writing">BA Writing</ion-select-option>
+      <ion-select-option value="bs_psych">BS Psychology</ion-select-option>
+    </ion-select>
+  </div>
+  <div class="stacked">
+    <ion-select multiple="true" cancelText="Cancel" okText="Done" placeholder="Select your Minor(s)">
+      <ion-select-option value="english">English</ion-select-option>
+      <ion-select-option value="accounting">Accounting</ion-select-option>
+    </ion-select>
+  </div>
+  <div class="stacked2">
+    Input courses you've taken:
+  </div>
+  <div class="stacked">
+    <ion-list>
+      <form [formGroup]="myForm">
+        <ion-item *ngFor="let control of myForm.controls | keyvalue">
+          <ion-input required type="text" [formControlName]="control.key" placeHolder="CS112"></ion-input>
+        </ion-item>
+      </form>
+    </ion-list>
+  </div>
+  <div class="stacked">
+    <ion-button block color="light" (click)="addControl()">Add Course</ion-button>  
+    <ion-button block color="light" (click)="removeControl()">Remove Course</ion-button>  
+  </div>
+  <div class="stacked">
+    <ion-button block color="dark" [disabled]=!myForm.valid type="submit">Permutate</ion-button>
+  </div>
 </div>
-
-<ion-content padding>
-  <ion-button block color="dark" [disabled]=!myForm.valid type="submit">Permutate</ion-button>
-</ion-content>
